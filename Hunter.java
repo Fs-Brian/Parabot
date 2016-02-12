@@ -228,12 +228,12 @@ public class Hunter extends Script implements Paintable, MessageListener{
         public void execute() {
             for(Item item : Inventory.getItems(HUNTER_IDS)){
                 if(item != null){
-                    int logCount = Inventory.getCount(HUNTER_IDS);
+                    int itemCount = Inventory.getCount(HUNTER_IDS);
                     item.drop();
                     Time.sleep(new SleepCondition() {
                         @Override
                         public boolean isValid() {
-                            return logCount > Inventory.getCount(HUNTER_IDS);
+                            return itemCount > Inventory.getCount(HUNTER_IDS);
                         }
                     }, 3000);
                 }
