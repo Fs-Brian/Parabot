@@ -35,7 +35,6 @@ public class Hunter extends Script implements Paintable, MessageListener{
     private final int SNOWY_ID = 5083;
     private final int BLACK_ID = 5082;
 
-    private long startTime;
     private Timer runTime = new Timer();
     private boolean rubyCaught = false;
     private boolean snowyCaught = false;
@@ -227,10 +226,10 @@ public class Hunter extends Script implements Paintable, MessageListener{
 
         @Override
         public void execute() {
-            for(Item log : Inventory.getItems(HUNTER_IDS)){
-                if(log != null){
+            for(Item item : Inventory.getItems(HUNTER_IDS)){
+                if(item != null){
                     int logCount = Inventory.getCount(HUNTER_IDS);
-                    log.drop();
+                    item.drop();
                     Time.sleep(new SleepCondition() {
                         @Override
                         public boolean isValid() {
